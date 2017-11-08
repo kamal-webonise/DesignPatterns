@@ -1,0 +1,90 @@
+4 . A journal on PCs would like to investigate some properties of different PCs, e.g. the price, performance, etc. The results need to be sorted in a list. There are several sorting algorithms for sorting all the PCs depending on specific characteristics.  These sorting algorithms behave differently with respect to the time and space performance. Therefore, it is required to select and switch to a different sorting algorithm at run-time.
+
+a) Which design pattern can be applied to fulfil these requirements?
+b) Give a short pseudo-formal implementation which shows the switching between different sorting algorithms. Assume that you have already a list in which the performance values for each PC are given. 
+
+
+
+b) Pseudo code for Sorting Algorithms
+
+1) First of all i have created a interface for sorting algorithm. In this case, I have passed a list of performance values as an argument.
+
+	public interface SortAlgorithm
+	{
+
+	public void sort(int *list);
+
+	}
+
+
+
+2) Different Sorting Algorithms will implement SortAlgorithm interface and gives output in ascending/decending performance value as per logic.
+
+	public class BubleSort implements SortAlgorithm
+	{
+	
+	public void sort(int *list)
+        {
+		...
+	}
+
+	}
+
+	public class SelectionSort implements SortAlgorithm
+	{
+	
+	public void sort(int *list)
+        {
+		...
+	}
+
+	}
+
+many more...
+
+
+3) Sort method will require input as SortAlgorithm and list.
+
+public class Sort 
+{
+	
+	public void sortAlgo(SortAlgorithm SortMethod,int *list)
+	{
+		
+		SortMethod.sort();
+	}
+}
+
+4) This class generates a list and an instance of SortAlgorithm. Depending on the input will generate performance evaluation. 
+
+public class PerformanceEvaluation 
+{
+
+	public static void main(String[] args)
+ 	{
+		SortAlgorithm sortAlgo = new SortAlgorithm();
+		int *List;
+		int* CretePerformanceList(){..}
+		
+		Sort sort=new Sort();
+		
+		sort.SortAlgo(new sortAlgo("BubbleSort"),List);
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
